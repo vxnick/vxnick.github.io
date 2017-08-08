@@ -1,0 +1,313 @@
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Nick Savage">
+<meta name="description" content="My technical ramblings">
+<meta name="generator" content="Hugo 0.25.1" />
+<title>My Debian XFCE4 Tweaks</title>
+<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
+<link rel="stylesheet" href="http://vxnick.com/css/style.css">
+<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
+
+
+
+<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
+
+
+<meta property="og:title" content="My Debian XFCE4 Tweaks" />
+<meta property="og:description" content="Tweaks that I have made to XFCE4 to replicate Cinnamon" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://vxnick.com/2014/02/my-debian-xfce4-tweaks/" />
+
+
+
+<meta property="article:published_time" content="2014-02-11T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2014-02-11T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="My Debian XFCE4 Tweaks">
+<meta itemprop="description" content="Tweaks that I have made to XFCE4 to replicate Cinnamon">
+
+
+<meta itemprop="dateModified" content="2014-02-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="595">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="My Debian XFCE4 Tweaks"/>
+<meta name="twitter:title" content="My Debian XFCE4 Tweaks"/>
+<meta name="twitter:description" content="Tweaks that I have made to XFCE4 to replicate Cinnamon"/>
+<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
+
+
+    <body>
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1><a href="http://vxnick.com/">My Debian XFCE4 Tweaks</a></h1>
+                    <h2 class="headline">
+                    February 11, 2014
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>In my <a href="/2014/02/debian-mixed-testing/unstable-installation/">previous blog post</a>
+I detailed the installation process for Debian <em>testing</em>. In this post, I&rsquo;ll detail
+the changes to XFCE4 that I made in order to replicate as closely as possible the
+<a href="http://cinnamon.linuxmint.com/">Cinnamon</a> desktop environment.</p>
+
+<p></p>
+
+<h2 id="basic-setup-minor-tweaks">Basic Setup &amp; Minor Tweaks</h2>
+
+<p>The first thing to do after logging in is to select <em>Use default config</em> from the
+prompt that appears.</p>
+
+<p>After this, you&rsquo;ll see a panel at the top and bottom of the screen - I want to remove
+the bottom panel and move the top panel to the bottom, to reproduce the more familiar
+layout.</p>
+
+<p>To do this, right click the bottom panel: <em>Panel &gt; Panel Preferences</em> and click the
+button displayed on the image.</p>
+
+<p><img src="http://static.vxnick.com/xfce4-blog/delete-bottom-panel.png" alt="Deleting the bottom panel" /></p>
+
+<p>Now, right click the top panel and select <em>Panel &gt; Panel Preferences</em>, then uncheck
+<em>Lock Panel</em>. Move the mouse to one of the edges, grab the panel (where the dots are) and
+drag all the way to the bottom of the screen. Check <em>Lock Panel</em> to fix its position.</p>
+
+<p>What I like to do now are some minor panel tweaks:</p>
+
+<ol>
+<li>Right click <em>Applications Menu</em> and click <em>Properties</em>
+
+<ol>
+<li>Uncheck <em>Show button title</em></li>
+<li>Click the icon; on the <em>Select icon from</em> dropdown, select <em>Uncategorised Icons</em></li>
+<li>Select <em>debian-logo</em></li>
+</ol></li>
+<li>Right click the clock in the bottom right of the panel, select <em>Properties</em>
+
+<ol>
+<li>Uncheck <em>Show frame</em></li>
+</ol></li>
+<li>Add some additional items to the panel
+
+<ol>
+<li>Right click the panel, select <em>Panel &gt; Add New Items</em></li>
+<li>Select an item and if necessary, right click it and select <em>Move</em> to reposition it</li>
+</ol></li>
+</ol>
+
+<h2 id="main-graphical-tweaks">Main Graphical Tweaks</h2>
+
+<p>Now, I want to get similar appearance and behaviour to Cinnamon, especially when scrolling windows
+that don&rsquo;t have focus (this is one of my favourite features).</p>
+
+<p>Click the menu on the bottom left (that is now set to the Debian logo) and select
+<em>Settings &gt; Settings Manager</em>. The following sub-headings will show which section of
+the <em>Settings Manager</em> you will find these options in.</p>
+
+<h4 id="window-manager">Window Manager</h4>
+
+<p>I like to remove the <em>shade</em> button on the <em>Button layout</em> section,
+as I never use it. To do this, drag it from the <em>Active</em> area to <em>Hidden</em>.</p>
+
+<p>On the <em>Advanced</em> tab, uncheck <em>Wrap workspaces when
+dragging a window off the screen</em>. This change allows us to immediately snap
+windows to the edges of the screen (something I like to do with a terminal).</p>
+
+<h4 id="window-manager-tweaks">Window Manager Tweaks</h4>
+
+<p>On the
+<em>Accessibility</em> tab, uncheck <em>Raise windows when any mouse button is pressed</em>. This
+change allows us to move the mouse over a background window and scroll through
+the content - again, something I like to do with a terminal window in the background.</p>
+
+<p>On the <em>Workspaces</em> tab, uncheck <em>Use the mouse wheel on the desktop to switch workspaces</em>.</p>
+
+<p>On the <em>Compositor</em> tab, check <em>Enable display compositing</em> and <em>Show shadows
+under regular windows</em> to make things look a bit nicer.</p>
+
+<h4 id="file-manager">File Manager</h4>
+
+<p>On the <em>View new folders using</em> dropdown, select <em>Detailed List View</em>. This may
+also need to be set within the file browser under <em>View &gt; View as Detailed List View</em>.</p>
+
+<p>Select the <em>YYYY-MM-DD HH:mm:ss</em> date format.</p>
+
+<h4 id="desktop">Desktop</h4>
+
+<p>On the <em>Menus</em> tab, uncheck
+<em>Show applications menu on desktop right click</em>, and uncheck
+<em>Show window list menu on desktop right click</em>.</p>
+
+<h4 id="appearance">Appearance</h4>
+
+<p>On the <em>Fonts</em> tab, you may need to check/uncheck <em>Enable anti-aliasing</em> a couple
+of times if the default is a box with a line (as opposed to a check).</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>That pretty much completes my Debian XFCE4 setup - it&rsquo;s not a perfect comparison to
+Cinnamon, but it works for me and hopefully you&rsquo;ll find a few useful settings that
+you can use with your own setup.</p>
+
+<p><img src="http://static.vxnick.com/xfce4-blog/desktop.png" alt="Finished desktop" /></p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/vxnick">
+                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
+                        <div>
+                            <span class="dark">Nick Savage</span>
+                            <span></span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2014%2f02%2fmy-debian-xfce4-tweaks%2f - My%20Debian%20XFCE4%20Tweaks by @vxnick"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+                </section>
+            </footer>
+
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vxnick" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2016/12/my-preferred-chef-team-workflow/">My preferred Chef team workflow<aside class="dates">Dec 5 2016</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/02/debian-mixed-testing/unstable-installation/">Debian Mixed Testing/Unstable Installation<aside class="dates">Feb 11 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2013/12/easy-nfs-mounting/">Easy NFS Mounting<aside class="dates">Dec 18 2013</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/07/minecraft-overviewer-mapping/">Minecraft Overviewer Mapping<aside class="dates">Jul 10 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/06/removing-old-duplicity-backups/">Removing Old Duplicity Backups<aside class="dates">Jun 14 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/04/setting-up-rbenv-globally/">Setting Up rbenv Globally<aside class="dates">Apr 9 2012</aside></a>
+        </li>
+    
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://github.com/vxnick">
+        github
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/vxnick">
+        twitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2017 Nick Savage
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://vxnick.com/js/main.js"></script>
+<script src="http://vxnick.com/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>

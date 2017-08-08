@@ -1,0 +1,228 @@
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Nick Savage">
+<meta name="description" content="My technical ramblings">
+<meta name="generator" content="Hugo 0.25.1" />
+<title>Removing Old Duplicity Backups</title>
+<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
+<link rel="stylesheet" href="http://vxnick.com/css/style.css">
+<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
+
+
+
+<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
+
+
+<meta property="og:title" content="Removing Old Duplicity Backups" />
+<meta property="og:description" content="How to remove stale backup files from a Duplicity remote" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://vxnick.com/2012/06/removing-old-duplicity-backups/" />
+
+
+
+<meta property="article:published_time" content="2012-06-14T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2012-06-14T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Removing Old Duplicity Backups">
+<meta itemprop="description" content="How to remove stale backup files from a Duplicity remote">
+
+
+<meta itemprop="dateModified" content="2012-06-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="150">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="Removing Old Duplicity Backups"/>
+<meta name="twitter:title" content="Removing Old Duplicity Backups"/>
+<meta name="twitter:description" content="How to remove stale backup files from a Duplicity remote"/>
+<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
+
+
+    <body>
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1><a href="http://vxnick.com/">Removing Old Duplicity Backups</a></h1>
+                    <h2 class="headline">
+                    June 14, 2012
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>I have recently setup a new Duplicity backup system, and while this works nicely,
+I noticed Duplicity wasn&rsquo;t deleting old backups from Amazon S3, despite the backup
+script running <code>remove-all-but-n-full 2</code> every 12 hours.</p>
+
+<p>This was a bit confusing as the Duplicity documentation makes out that this
+command will remove all backups except for the last 2 full backups.</p>
+
+<p>After some Googling, I came across the <code>cleanup</code> command. While I had already
+added this to the script, it was under an option intended for manual use, as
+the documentation makes out that this should only really be run if a session
+fails or is aborted.</p>
+
+<p>I also discovered that <code>cleanup</code> takes an <code>--extra-clean</code> argument. This made all
+the difference! I added <code>cleanup --extra-clean --force</code> to my 12-hour section of
+code, and finally Duplicity was removing extraneous files from S3!</p>
+
+<p>I hope this helps if you&rsquo;re in a similar situation 😄</p>
+
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/vxnick">
+                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
+                        <div>
+                            <span class="dark">Nick Savage</span>
+                            <span></span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2012%2f06%2fremoving-old-duplicity-backups%2f - Removing%20Old%20Duplicity%20Backups by @vxnick"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+                </section>
+            </footer>
+
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vxnick" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2016/12/my-preferred-chef-team-workflow/">My preferred Chef team workflow<aside class="dates">Dec 5 2016</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/02/debian-mixed-testing/unstable-installation/">Debian Mixed Testing/Unstable Installation<aside class="dates">Feb 11 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/02/my-debian-xfce4-tweaks/">My Debian XFCE4 Tweaks<aside class="dates">Feb 11 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2013/12/easy-nfs-mounting/">Easy NFS Mounting<aside class="dates">Dec 18 2013</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/07/minecraft-overviewer-mapping/">Minecraft Overviewer Mapping<aside class="dates">Jul 10 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/04/setting-up-rbenv-globally/">Setting Up rbenv Globally<aside class="dates">Apr 9 2012</aside></a>
+        </li>
+    
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://github.com/vxnick">
+        github
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/vxnick">
+        twitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2017 Nick Savage
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://vxnick.com/js/main.js"></script>
+<script src="http://vxnick.com/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>

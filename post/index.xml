@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Nick&#39;s Place</title>
+    <link>http://vxnick.com/post/</link>
+    <description>Recent content in Posts on Nick&#39;s Place</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 19 Dec 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://vxnick.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Breaking (unlinking) hard links</title>
+      <link>http://vxnick.com/2016/12/breaking-unlinking-hard-links/</link>
+      <pubDate>Mon, 19 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2016/12/breaking-unlinking-hard-links/</guid>
+      <description>&lt;p&gt;Sometimes, you have so much data that you need to look at de-duplicating it. One
+method for this is to use &lt;a href=&#34;https://en.wikipedia.org/wiki/Hard_link&#34;&gt;hard links&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;What happens if you mess up and need to remove those hard links though?&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>My preferred Chef team workflow</title>
+      <link>http://vxnick.com/2016/12/my-preferred-chef-team-workflow/</link>
+      <pubDate>Mon, 05 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2016/12/my-preferred-chef-team-workflow/</guid>
+      <description>&lt;p&gt;I started using &lt;a href=&#34;https://www.chef.io/&#34;&gt;Chef&lt;/a&gt; in March 2015; before then, I had used &lt;a href=&#34;http://www.fabfile.org/&#34;&gt;Fabric&lt;/a&gt; to
+attempt to do a lot of similar things.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Binding extra mouse buttons on Linux</title>
+      <link>http://vxnick.com/2014/10/binding-extra-mouse-buttons-on-linux/</link>
+      <pubDate>Fri, 17 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2014/10/binding-extra-mouse-buttons-on-linux/</guid>
+      <description>&lt;p&gt;I use a &lt;a href=&#34;http://gaming.logitech.com/en-gb/product/g600-mmo-gaming-mouse&#34;&gt;Logitech G600 Gaming Mouse&lt;/a&gt; which I purchased for Windows gaming, but
+until now the extra mouse buttons were useless on Linux and I wanted to map these to media keys.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Debian Mixed Testing/Unstable Installation</title>
+      <link>http://vxnick.com/2014/02/debian-mixed-testing/unstable-installation/</link>
+      <pubDate>Tue, 11 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2014/02/debian-mixed-testing/unstable-installation/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve recently decided to move away from &lt;a href=&#34;http://www.linuxmint.com/&#34;&gt;Linux Mint&lt;/a&gt; to
+&lt;a href=&#34;http://www.debian.org/&#34;&gt;Debian&lt;/a&gt;. This blog post (and one or two more) will detail
+how I went about installing and configuring it.&lt;/p&gt;
+
+&lt;p&gt;This will probably be quite long and possibly quite technical, but hopefully should be
+understandable if you have some basic Linux knowledge.&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re not interested in reading the blurb that led me to switch to Debian,
+scroll down to the &lt;strong&gt;Initial Setup&lt;/strong&gt; section.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>My Debian XFCE4 Tweaks</title>
+      <link>http://vxnick.com/2014/02/my-debian-xfce4-tweaks/</link>
+      <pubDate>Tue, 11 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2014/02/my-debian-xfce4-tweaks/</guid>
+      <description>&lt;p&gt;In my &lt;a href=&#34;http://vxnick.com/2014/02/debian-mixed-testing/unstable-installation/&#34;&gt;previous blog post&lt;/a&gt;
+I detailed the installation process for Debian &lt;em&gt;testing&lt;/em&gt;. In this post, I&amp;rsquo;ll detail
+the changes to XFCE4 that I made in order to replicate as closely as possible the
+&lt;a href=&#34;http://cinnamon.linuxmint.com/&#34;&gt;Cinnamon&lt;/a&gt; desktop environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Easy NFS Mounting</title>
+      <link>http://vxnick.com/2013/12/easy-nfs-mounting/</link>
+      <pubDate>Wed, 18 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2013/12/easy-nfs-mounting/</guid>
+      <description>&lt;p&gt;A year or two ago, I bought a &lt;a href=&#34;http://www.readynas.com/&#34;&gt;ReadyNAS&lt;/a&gt; and was having
+problems getting it to mount on Ubuntu. I tried various methods, but without much
+luck.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m writing this post now as I had to mount this share on my Linux laptop, and
+couldn&amp;rsquo;t remember how I&amp;rsquo;d done it on my Linux desktop.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Bundler Gemfile path</title>
+      <link>http://vxnick.com/2012/12/bundler-gemfile-path/</link>
+      <pubDate>Mon, 03 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2012/12/bundler-gemfile-path/</guid>
+      <description>&lt;p&gt;The project I&amp;rsquo;m working on was relying on Gems installed at the system level (as opposed
+to the user&amp;rsquo;s home directory), and I was beginning to find this less than optimal in terms
+of maintenance and people potentially upgrading (and breaking) those Gems.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Minecraft Overviewer Mapping</title>
+      <link>http://vxnick.com/2012/07/minecraft-overviewer-mapping/</link>
+      <pubDate>Tue, 10 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2012/07/minecraft-overviewer-mapping/</guid>
+      <description>&lt;p&gt;I run a &lt;a href=&#34;http://playpyxis.com/&#34;&gt;fairly small&lt;/a&gt; Minecraft server with my brother
+and a few friends, and one of the requests we had was for a dynamic world map,
+using the &lt;a href=&#34;http://dev.bukkit.org/server-mods/dynmap/&#34;&gt;Dynmap&lt;/a&gt; Bukkit plugin.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Removing Old Duplicity Backups</title>
+      <link>http://vxnick.com/2012/06/removing-old-duplicity-backups/</link>
+      <pubDate>Thu, 14 Jun 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2012/06/removing-old-duplicity-backups/</guid>
+      <description>I have recently setup a new Duplicity backup system, and while this works nicely, I noticed Duplicity wasn&amp;rsquo;t deleting old backups from Amazon S3, despite the backup script running remove-all-but-n-full 2 every 12 hours.
+This was a bit confusing as the Duplicity documentation makes out that this command will remove all backups except for the last 2 full backups.
+After some Googling, I came across the cleanup command. While I had already added this to the script, it was under an option intended for manual use, as the documentation makes out that this should only really be run if a session fails or is aborted.</description>
+    </item>
+    
+    <item>
+      <title>Wipe a Mac HDD Using a Linux Live CD USB</title>
+      <link>http://vxnick.com/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/</link>
+      <pubDate>Fri, 20 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m selling my 2008-era MacBook Pro to a friend, but still want to wipe (as
+securely as possible) the HDD before passing it on.&lt;/p&gt;
+
+&lt;p&gt;I was initially quite worried that a Linux Live CD USB image (hereafter referred
+to as USB image, because I&amp;rsquo;m lazy and don&amp;rsquo;t know the proper terminology) wouldn&amp;rsquo;t
+boot due to the EFI BIOS-type thing that Macs have (it&amp;rsquo;s an Intel).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Setting Up rbenv Globally</title>
+      <link>http://vxnick.com/2012/04/setting-up-rbenv-globally/</link>
+      <pubDate>Mon, 09 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2012/04/setting-up-rbenv-globally/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m fairly new to Ruby and have been playing around with both &lt;a href=&#34;https://rvm.beginrescueend.com/&#34;&gt;RVM&lt;/a&gt;
+and &lt;a href=&#34;https://github.com/sstephenson/rbenv&#34;&gt;rbenv&lt;/a&gt; and have settled on &lt;em&gt;rbenv&lt;/em&gt;
+primarily for its simplicity.&lt;/p&gt;
+
+&lt;p&gt;One thing I was trying to figure out was setting it up globally for all users,
+while still allowing users to opt-out of the global Ruby version and install
+their own.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Easy SSL CSR Creation</title>
+      <link>http://vxnick.com/2012/04/easy-ssl-csr-creation/</link>
+      <pubDate>Mon, 02 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2012/04/easy-ssl-csr-creation/</guid>
+      <description>&lt;p&gt;As I mentioned in &lt;a href=&#34;http://vxnick.com/2010/12/viewing-csr-data/&#34;&gt;another post&lt;/a&gt;,
+I generate SSL certificates quite a lot (but not often enough to remember the specifics
+of each command), so here&amp;rsquo;s a quick reference.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Autoloading your own libraries with Rails</title>
+      <link>http://vxnick.com/2012/04/autoloading-your-own-libraries-with-rails/</link>
+      <pubDate>Sun, 01 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2012/04/autoloading-your-own-libraries-with-rails/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m new to Rails (and Ruby, more or less) and am currently working on my first
+real project with it.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creating an SSH Tunnel</title>
+      <link>http://vxnick.com/2011/02/creating-an-ssh-tunnel/</link>
+      <pubDate>Thu, 03 Feb 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2011/02/creating-an-ssh-tunnel/</guid>
+      <description>&lt;p&gt;After some searching and trial-and-error, I came upon the following command to
+create an SSH tunnel.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Equalising Volume with mp3gain</title>
+      <link>http://vxnick.com/2011/01/equalising-volume-with-mp3gain/</link>
+      <pubDate>Wed, 12 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2011/01/equalising-volume-with-mp3gain/</guid>
+      <description>&lt;p&gt;Not so long ago I was looking for a tool to equalise the volume of all my
+music, as it was getting annoying having to constantly adjust the volume when
+the tracks changed.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Viewing CSR Data</title>
+      <link>http://vxnick.com/2010/12/viewing-csr-data/</link>
+      <pubDate>Wed, 22 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2010/12/viewing-csr-data/</guid>
+      <description>&lt;p&gt;Quite often I have to generate SSL CSRs (i.e. &lt;em&gt;Certificate Signing Requests&lt;/em&gt;) and I
+was curious to see how easy it would be to view the data contained within.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Export Bazaar to Git</title>
+      <link>http://vxnick.com/2010/08/export-bazaar-to-git/</link>
+      <pubDate>Wed, 18 Aug 2010 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2010/08/export-bazaar-to-git/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been looking at switching to &lt;a href=&#34;http://git-scm.com&#34;&gt;Git&lt;/a&gt; for a while now, mainly
+because &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; is just &lt;em&gt;so cool&lt;/em&gt;!&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>cPanel Exim Secondary IP</title>
+      <link>http://vxnick.com/2009/12/cpanel-exim-secondary-ip/</link>
+      <pubDate>Thu, 17 Dec 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/12/cpanel-exim-secondary-ip/</guid>
+      <description>&lt;p&gt;Some of our servers have multiple IP addresses configured - in most cases we want to use &lt;code&gt;eth0:1&lt;/code&gt; rather than &lt;code&gt;eth0&lt;/code&gt;, but it wasn&amp;rsquo;t immediately clear how to do this on cPanel&amp;rsquo;s Exim mail server.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>SSH KeepAlive</title>
+      <link>http://vxnick.com/2009/05/ssh-keepalive/</link>
+      <pubDate>Thu, 07 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/05/ssh-keepalive/</guid>
+      <description>&lt;p&gt;I discovered a while back that my SSH sessions weren&amp;rsquo;t staying active despite having the appropriate settings in &lt;code&gt;/etc/ssh/ssh_config&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Redmine Bazaar Repositories</title>
+      <link>http://vxnick.com/2009/05/redmine-bazaar-repositories/</link>
+      <pubDate>Wed, 06 May 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/05/redmine-bazaar-repositories/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Sigh&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s taken me about a day of fiddling about to finally get &lt;a href=&#34;http://redmine.org&#34;&gt;Redmine&lt;/a&gt; to work with my &lt;a href=&#34;http://bazaar-vcs.org&#34;&gt;Bazaar&lt;/a&gt; repositories.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Shell Line Count</title>
+      <link>http://vxnick.com/2009/04/shell-line-count/</link>
+      <pubDate>Thu, 23 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/04/shell-line-count/</guid>
+      <description>&lt;p&gt;I found this &lt;a href=&#34;http://vision-media.ca/resources/unix/counting-lines-in-a-script&#34;&gt;useful page&lt;/a&gt; for counting lines in projects that I work on.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PHP Country Array</title>
+      <link>http://vxnick.com/2009/03/php-country-array/</link>
+      <pubDate>Sun, 29 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/03/php-country-array/</guid>
+      <description>&lt;p&gt;Here is an easy to use function to allow you to display a list of countries to your users - this avoids them having to type it out (potentially incorrectly), and is ideal for use in a select field (drop-down box).&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>PHP Filesize Formats</title>
+      <link>http://vxnick.com/2009/03/php-filesize-formats/</link>
+      <pubDate>Sun, 29 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/03/php-filesize-formats/</guid>
+      <description>&lt;p&gt;This handy function allows you to pass a filesize in bytes and have it returned with the appropriate suffix.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Developing with Bazaar</title>
+      <link>http://vxnick.com/2009/03/developing-with-bazaar/</link>
+      <pubDate>Mon, 23 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/03/developing-with-bazaar/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;http://bazaar-vcs.org/&#34;&gt;Bazaar VCS&lt;/a&gt; for some time now, perhaps half a year or so, and have come to love it for its simplicity but also its flexibility.&lt;/p&gt;
+
+&lt;p&gt;In this article I&amp;rsquo;m going to outline the process of setting up a project repository with Bazaar and then using it alongside development.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>MAMP Wildcard VirtualHosts</title>
+      <link>http://vxnick.com/2009/03/mamp-wildcard-virtualhosts/</link>
+      <pubDate>Mon, 23 Mar 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://vxnick.com/2009/03/mamp-wildcard-virtualhosts/</guid>
+      <description>&lt;p&gt;I spent a good hour or so trying to get wildcard VirtualHosts working on my Mac - here I&amp;rsquo;m going to outline the steps I took, as information on the web was very sparse.&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,292 @@
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Nick Savage">
+<meta name="description" content="My technical ramblings">
+<meta name="generator" content="Hugo 0.25.1" />
+<title>My preferred Chef team workflow</title>
+<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
+<link rel="stylesheet" href="http://vxnick.com/css/style.css">
+<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
+
+
+
+<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
+
+
+
+<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
+
+
+<meta property="og:title" content="My preferred Chef team workflow" />
+<meta property="og:description" content="It can be difficult to use Chef effectively in teams; I will attempt to make that a little bit easier." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://vxnick.com/2016/12/my-preferred-chef-team-workflow/" />
+
+
+
+<meta property="article:published_time" content="2016-12-05T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2016-12-05T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="My preferred Chef team workflow">
+<meta itemprop="description" content="It can be difficult to use Chef effectively in teams; I will attempt to make that a little bit easier.">
+
+
+<meta itemprop="dateModified" content="2016-12-05T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="912">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+
+  <meta name="twitter:card" content="summary"/>
+
+
+
+<meta name="twitter:text:title" content="My preferred Chef team workflow"/>
+<meta name="twitter:title" content="My preferred Chef team workflow"/>
+<meta name="twitter:description" content="It can be difficult to use Chef effectively in teams; I will attempt to make that a little bit easier."/>
+<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
+
+
+    <body>
+        <section id="wrapper">
+            <article class="post">
+                <header>
+                    <h1><a href="http://vxnick.com/">My preferred Chef team workflow</a></h1>
+                    <h2 class="headline">
+                    December 5, 2016
+                    <br>
+                    
+                    </h2>
+                </header>
+                <section id="post-body">
+                    <p>I started using <a href="https://www.chef.io/">Chef</a> in March 2015; before then, I had used <a href="http://www.fabfile.org/">Fabric</a> to
+attempt to do a lot of similar things.</p>
+
+<p></p>
+
+<p>My initial workflow for Chef was pre-determined when I started at <code>$DAYJOB</code>. This involved
+keeping environment files within Git and using the <code>knife spork omni</code> command to bump, upload and promote
+new cookbook versions on Chef Server.</p>
+
+<p>That&rsquo;s all fine when you&rsquo;re working alone or with one or two others on Chef, but problems
+start to emerge once more people start to get involved.</p>
+
+<p>This led me to think about the way we use Chef and what we are trying to achieve.</p>
+
+<h3 id="my-objectives">My objectives</h3>
+
+<ol>
+<li>Avoid merge conflicts and confusion with environment files</li>
+<li>Have more control over Chef environments and their versions</li>
+<li>Allow the potential for using separate Git branches per environment</li>
+</ol>
+
+<p>To expand on these points:</p>
+
+<h4 id="avoid-merge-conflicts-and-confusion-with-environment-files">Avoid merge conflicts and confusion with environment files</h4>
+
+<p>As more people started to work on our (centralised) Chef repository, we began to experience more and more merge conflicts and confusion around which version of a cookbook was actually deployed on the Chef Server, because one person&rsquo;s local environment file would differ from that of Chef Server, and even other people.</p>
+
+<h4 id="have-more-control-over-chef-environments-and-their-versions">Have more control over Chef environments and their versions</h4>
+
+<p>I wanted us to more easily edit cookbook versions on our two environments, <em>testing</em> and <em>stable</em>. For a long time, we had neglected to make use of these properly, subsequently leading to most servers being associated witht he _<em>default</em> environment.</p>
+
+<h4 id="allow-the-potential-for-using-separate-git-branches-per-environment">Allow the potential for using separate Git branches per environment</h4>
+
+<p>As part of the second objective, I wanted us to potentially begin to use separate Git branches for changes that should be rolled-out to the <em>testing</em> environment separately (and cleanly) from those destined for <em>stable</em>. In most cases, we would want to branch from <em>testing</em> to work on features and bug fixes without these changes being inadvertently included in subsequent feature/bug branches.</p>
+
+<h3 id="implementing-these-objectives">Implementing these objectives</h3>
+
+<p>Chef doesn&rsquo;t seem to have any definitive, clear-cut best practices for what we wanted to do, so our implementation is a combination of a few concepts, and actually probably similar to what a lot of other organisations have done as well.</p>
+
+<h4 id="avoid-merge-conflicts-and-confusion-with-environment-files-1">Avoid merge conflicts and confusion with environment files</h4>
+
+<p>We started by deleting our local environment files and changed from using <code>knife spork omni</code> to a more traditional (and manual) process. Our typical workflow now looks like this:</p>
+
+<pre><code># hack
+# increment version in &lt;cookbook&gt;/metadata.rb
+# git commit and create pull request
+knife cookbook upload -E testing &lt;cookbook&gt; --freeze
+# pull request approved and merged
+knife environment edit stable # then edit the version to match that of testing
+</code></pre>
+
+<p>This is slightly longer than our previous workflow, where <code>knife spork omni</code> would combine the version bump, cookbook upload and environment edit in one step, but allows us more control over the process.</p>
+
+<h4 id="have-more-control-over-chef-environments-and-their-versions-1">Have more control over Chef environments and their versions</h4>
+
+<p>Now that our workflow allows us more control over which environment gets which version of a cookbook, we could start to address how we rollout these changes.</p>
+
+<p>As shown in the command example above, we upload the cookbook to the <em>testing</em> environment and <code>freeze</code> it. Freezing a cookbook version means that Chef Server will complain if you try to upload the same cookbook and version again. This is really useful when multiple people are working on their own branches of the same cookbook, as it ensures that only <em>one</em> of those branches will be deployed on the <em>testing</em> environment.</p>
+
+<p>To demonstrate this more, here&rsquo;s a simple diagram.</p>
+
+<p><img src="/images/unfrozen-uploads.png" alt="Overwriting an unfrozen cookbook version" /></p>
+
+<p>In this example, you can see the original <code>base</code> cookbook version is <em>1.0.0</em>. The first person creates a feature branch based on this, makes their changes,
+commits, creates a pull request and then uploads their new cookbook version (<em>1.1.0</em>).</p>
+
+<p>When the second person does the same thing, they may not have seen the existing pull request (and its new version), so naturally, they increment their branch
+version to <em>1.1.0</em>, commit, create a pull request and then upload their cookbook version. Because this is numbered the same as the first pull request, it overwrites the first version on the Chef Server. This is highly confusing.</p>
+
+<p><strong>The takeaway:</strong> <em>Always</em> freeze your new cookbook versions when uploading to Chef Server!</p>
+
+<p>Getting back on track&hellip; Our general workflow is to freeze and upload a new cookbook version to our <em>testing</em> environment while a pull request is open. This allows us time to have it rolled-out to our test servers and soak in for 24 hours or so to allow for any problems to surface. After that time, we set the new version in the <em>stable</em> environment with <code>knife environment edit stable</code>, after which it will roll-out to our production servers.</p>
+
+<h4 id="allow-the-potential-for-using-separate-git-branches-per-environment-1">Allow the potential for using separate Git branches per environment</h4>
+
+<p>Lastly, this workflow gives us more flexibility with Git branching. If we want to (and we will probably need to), we will be able to branch each new feature or
+fix from the <em>master</em> branch, follow our current workflow and then pull request against the <em>testing</em> branch. This means that people creating branches in quick succession will <em>always</em> branch from the known stable version, rather than (potentially) a pull request that was only merged minutes before.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>I&rsquo;ve brain-dumped a lot of information in this post, so I accept that some of it may be confusing. Please feel free to get in touch if you have any questions about this, or anything else I&rsquo;ve mentioned here!</p>
+                </section>
+            </article>
+            <footer id="post-meta" class="clearfix">
+                <a href="https://twitter.com/vxnick">
+                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
+                        <div>
+                            <span class="dark">Nick Savage</span>
+                            <span></span>
+                        </div>
+                    </a>
+                <section id="sharing">
+                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2016%2f12%2fmy-preferred-chef-team-workflow%2f - My%20preferred%20Chef%20team%20workflow by @vxnick"><span class="icon-twitter"> tweet</span></a>
+
+<a class="facebook" href="#" onclick="
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
+      'facebook-share-dialog',
+      'width=626,height=436');
+    return false;"><span class="icon-facebook-rect"> Share</span>
+</a>
+
+                </section>
+            </footer>
+
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "vxnick" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+            <ul id="post-list" class="archive readmore">
+    <h3>Read more</h3>
+
+    
+    
+    
+        <li>
+            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/02/debian-mixed-testing/unstable-installation/">Debian Mixed Testing/Unstable Installation<aside class="dates">Feb 11 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2014/02/my-debian-xfce4-tweaks/">My Debian XFCE4 Tweaks<aside class="dates">Feb 11 2014</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2013/12/easy-nfs-mounting/">Easy NFS Mounting<aside class="dates">Dec 18 2013</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/07/minecraft-overviewer-mapping/">Minecraft Overviewer Mapping<aside class="dates">Jul 10 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/06/removing-old-duplicity-backups/">Removing Old Duplicity Backups<aside class="dates">Jun 14 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
+        </li>
+    
+        <li>
+            <a href="/2012/04/setting-up-rbenv-globally/">Setting Up rbenv Globally<aside class="dates">Apr 9 2012</aside></a>
+        </li>
+    
+</ul>
+
+            <footer id="footer">
+    
+        <div id="social">
+
+	
+	
+    
+    <a class="symbol" href="https://github.com/vxnick">
+        github
+    </a>
+    
+    <a class="symbol" href="https://twitter.com/vxnick">
+        twitterbird
+    </a>
+    
+
+
+</div>
+
+    
+    <p class="small">
+    
+        © Copyright 2017 Nick Savage
+    
+    </p>
+</footer>
+
+        </section>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://vxnick.com/js/main.js"></script>
+<script src="http://vxnick.com/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+
+    </body>
+</html>
