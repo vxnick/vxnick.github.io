@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Nick Savage">
 <meta name="description" content="My technical ramblings">
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.31.1" />
 <title>Minecraft Overviewer Mapping</title>
 <link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
 <link rel="stylesheet" href="http://vxnick.com/css/style.css">
@@ -26,6 +26,7 @@
 
 
 <meta property="article:published_time" content="2012-07-10T00:00:00&#43;00:00"/>
+
 <meta property="article:modified_time" content="2012-07-10T00:00:00&#43;00:00"/>
 
 
@@ -44,6 +45,7 @@
 <meta itemprop="description" content="Setting up Minecraft Overviewer on a separate server">
 
 
+<meta itemprop="datePublished" content="2012-07-10T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2012-07-10T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="844">
 
@@ -108,44 +110,42 @@ Overviewer to re-generate the map.</p>
 <p>If you&rsquo;re interested in using this yourself, scroll down past the code to find
 further information.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #75715e">#!/bin/bash</span>
-<span style="color: #f8f8f2">working_dir</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;/home/nick/tmp/mcmap-import&quot;</span>
-<span style="color: #f92672">(</span>
-        flock -w <span style="color: #ae81ff">300</span> <span style="color: #ae81ff">200</span> <span style="color: #f92672">||</span> <span style="color: #f8f8f2">exit</span> 1
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>working_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/home/nick/tmp/mcmap-import&#34;</span>
+<span style="color:#f92672">(</span>
+        flock -w <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">200</span> <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">1</span>
 
-        <span style="color: #66d9ef">if</span> <span style="color: #f92672">[[</span> -d <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$working_dir</span><span style="color: #e6db74">/world&quot;</span> <span style="color: #f92672">]]</span><span style="color: #f8f8f2">;</span> <span style="color: #66d9ef">then</span>
-                <span style="color: #f8f8f2">echo</span> -n <span style="color: #e6db74">&quot;Removing old world directory... &quot;</span>
-                rm -rf <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$working_dir</span><span style="color: #e6db74">/world&quot;</span>
-                <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;done&quot;</span>
-        <span style="color: #66d9ef">fi</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -d <span style="color:#e6db74">&#34;</span>$working_dir<span style="color:#e6db74">/world&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+                echo -n <span style="color:#e6db74">&#34;Removing old world directory... &#34;</span>
+                rm -rf <span style="color:#e6db74">&#34;</span>$working_dir<span style="color:#e6db74">/world&#34;</span>
+                echo <span style="color:#e6db74">&#34;done&#34;</span>
+        <span style="color:#66d9ef">fi</span>
 
-        mkdir -p <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$working_dir</span><span style="color: #e6db74">&quot;</span>
-        <span style="color: #f8f8f2">cd</span> <span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$working_dir</span><span style="color: #e6db74">&quot;</span>
+        mkdir -p <span style="color:#e6db74">&#34;</span>$working_dir<span style="color:#e6db74">&#34;</span>
+        cd <span style="color:#e6db74">&#34;</span>$working_dir<span style="color:#e6db74">&#34;</span>
 
-        <span style="color: #f8f8f2">echo</span> -n <span style="color: #e6db74">&quot;Fetching world from Multiplay... &quot;</span>
-        wget -q -nH --cut-dirs<span style="color: #f92672">=</span><span style="color: #ae81ff">3</span> -m ftp://xx.xx.xx.xx/minecraft/beta/server-id/world
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;done&quot;</span>
+        echo -n <span style="color:#e6db74">&#34;Fetching world from Multiplay... &#34;</span>
+        wget -q -nH --cut-dirs<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> -m ftp://xx.xx.xx.xx/minecraft/beta/server-id/world
+        echo <span style="color:#e6db74">&#34;done&#34;</span>
 
-        sleep 2
+        sleep <span style="color:#ae81ff">2</span>
 
-        <span style="color: #f8f8f2">echo</span> -n <span style="color: #e6db74">&quot;Merging with current world... &quot;</span>
+        echo -n <span style="color:#e6db74">&#34;Merging with current world... &#34;</span>
         rsync -av --delete world/ world-ref/
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;done&quot;</span>
+        echo <span style="color:#e6db74">&#34;done&#34;</span>
 
-        sleep 2
+        sleep <span style="color:#ae81ff">2</span>
 
-        <span style="color: #f8f8f2">echo</span> -n <span style="color: #e6db74">&quot;Generating... &quot;</span>
-        ~/bin/overviewer.py --config<span style="color: #f92672">=</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">$working_dir</span><span style="color: #e6db74">/mco.conf&quot;</span>
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;done&quot;</span>
+        echo -n <span style="color:#e6db74">&#34;Generating... &#34;</span>
+        ~/bin/overviewer.py --config<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$working_dir<span style="color:#e6db74">/mco.conf&#34;</span>
+        echo <span style="color:#e6db74">&#34;done&#34;</span>
 
-        sleep 2
+        sleep <span style="color:#ae81ff">2</span>
 
-        <span style="color: #f8f8f2">echo</span> -n <span style="color: #e6db74">&quot;Pushing to Pyxis... &quot;</span>
+        echo -n <span style="color:#e6db74">&#34;Pushing to Pyxis... &#34;</span>
         rsync -av --delete world-live/ user@host:~/webapps/pyxis/map/
-        <span style="color: #f8f8f2">echo</span> <span style="color: #e6db74">&quot;done&quot;</span>
-<span style="color: #f92672">)</span> 200&gt;<span style="color: #f8f8f2">$working_dir</span>/cron.lock
-</pre></div>
-
+        echo <span style="color:#e6db74">&#34;done&#34;</span>
+<span style="color:#f92672">)</span> <span style="color:#ae81ff">200</span>&gt;$working_dir/cron.lock</code></pre></div>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
@@ -258,8 +258,8 @@ uploaded to the Pyxis web server.</p>
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
             <ul id="post-list" class="archive readmore">
     <h3>Read more</h3>

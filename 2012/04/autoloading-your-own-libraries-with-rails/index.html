@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Nick Savage">
 <meta name="description" content="My technical ramblings">
-<meta name="generator" content="Hugo 0.26" />
+<meta name="generator" content="Hugo 0.31.1" />
 <title>Autoloading your own libraries with Rails</title>
 <link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
 <link rel="stylesheet" href="http://vxnick.com/css/style.css">
@@ -26,6 +26,7 @@
 
 
 <meta property="article:published_time" content="2012-04-01T00:00:00&#43;00:00"/>
+
 <meta property="article:modified_time" content="2012-04-01T00:00:00&#43;00:00"/>
 
 
@@ -44,6 +45,7 @@
 <meta itemprop="description" content="How to add a path to the Rails autoloader">
 
 
+<meta itemprop="datePublished" content="2012-04-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2012-04-01T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="123">
 
@@ -81,9 +83,7 @@ and uncomment <code>config.autoload_paths</code> and change the value to whateve
 <p>I set it as follows as I thought it&rsquo;d be a better idea to only include my own files
 rather than <code>assets</code> and <code>tasks</code> if I had included the entire <code>lib</code> directory.</p>
 
-<div class="highlight" style="background: #272822"><pre style="line-height: 125%"><span></span><span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">autoload_paths</span> <span style="color: #f92672">+=</span> <span style="color: #e6db74">%W(#{</span><span style="color: #f8f8f2">config</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">root</span><span style="color: #e6db74">}/lib/my_project)</span>
-</pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">config<span style="color:#f92672">.</span>autoload_paths <span style="color:#f92672">+=</span> <span style="color:#e6db74">%W(</span><span style="color:#e6db74">#{</span>config<span style="color:#f92672">.</span>root<span style="color:#e6db74">}</span><span style="color:#e6db74">/lib/my_project)</span></code></pre></div>
 
 <p>If anyone knows a better way - let me know!</p>
                 </section>
@@ -128,8 +128,8 @@ rather than <code>assets</code> and <code>tasks</code> if I had included the ent
         (d.head || d.body).appendChild(s);
     })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
             <ul id="post-list" class="archive readmore">
     <h3>Read more</h3>
