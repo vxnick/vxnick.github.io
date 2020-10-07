@@ -1,173 +1,182 @@
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Nick Savage">
-<meta name="description" content="My technical ramblings">
-<meta name="generator" content="Hugo 0.31.1" />
-<title>Debian Mixed Testing/Unstable Installation</title>
-<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
-<link rel="stylesheet" href="http://vxnick.com/css/style.css">
-<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
-
-
-
-<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
-
-
-
-<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
-
-
-<meta property="og:title" content="Debian Mixed Testing/Unstable Installation" />
-<meta property="og:description" content="Setting up a Debian installation using testing and unstable sources" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://vxnick.com/2014/02/debian-mixed-testing/unstable-installation/" />
-
-
-
-<meta property="article:published_time" content="2014-02-11T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2014-02-11T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<meta itemprop="name" content="Debian Mixed Testing/Unstable Installation">
-<meta itemprop="description" content="Setting up a Debian installation using testing and unstable sources">
-
-
-<meta itemprop="datePublished" content="2014-02-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-02-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="946">
-
-
-
-<meta itemprop="keywords" content="" />
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Debian Mixed Testing/Unstable Installation"/>
-<meta name="twitter:description" content="Setting up a Debian installation using testing and unstable sources"/>
-<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
-
-
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Debian Mixed Testing/Unstable Installation &middot; Nick Savage</title>
+        <meta name="description" content="Setting up a Debian installation using testing and unstable sources">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.76.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Debian Mixed Testing/Unstable Installation">
+<meta property="og:description" content="Setting up a Debian installation using testing and unstable sources">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vxnick.com/2014/02/debian-mixed-testing/unstable-installation/">
+        <link rel="stylesheet" href="https://vxnick.com/dist/site.css">
+        <link rel="stylesheet" href="https://vxnick.com/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+    </head>
     <body>
-        <section id="wrapper">
-            <article class="post">
-                <header>
-                    <h1><a href="http://vxnick.com/">Debian Mixed Testing/Unstable Installation</a></h1>
-                    <h2 class="headline">
-                    February 11, 2014
-                    <br>
-                    
-                    </h2>
-                </header>
-                <section id="post-body">
-                    <p>I&rsquo;ve recently decided to move away from <a href="http://www.linuxmint.com/">Linux Mint</a> to
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-7692437-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                            </h1>
+                        
+                        
+                            <a class="button-square" href="https://vxnick.com/index.xml" aria-label="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/vxnick" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/vxnick" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Debian Mixed Testing/Unstable Installation</h1>
+    
+        <p class="post-description" itemprop="description">Setting up a Debian installation using testing and unstable sources</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2014-02-11" itemprop="datePublished">Tue, Feb 11, 2014</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Nick Savage</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 5 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>I&rsquo;ve recently decided to move away from <a href="http://www.linuxmint.com/">Linux Mint</a> to
 <a href="http://www.debian.org/">Debian</a>. This blog post (and one or two more) will detail
 how I went about installing and configuring it.</p>
-
 <p>This will probably be quite long and possibly quite technical, but hopefully should be
 understandable if you have some basic Linux knowledge.</p>
-
 <p>If you&rsquo;re not interested in reading the blurb that led me to switch to Debian,
 scroll down to the <strong>Initial Setup</strong> section.</p>
-
-<p></p>
-
 <h2 id="why-debian">Why Debian?</h2>
-
 <p>A few reasons:</p>
-
 <ol>
 <li>I haven&rsquo;t liked the direction Ubuntu has been taking for the last few years</li>
 <li>I plan to make more use of Debian for personal and work servers (versus Ubuntu)</li>
 <li>I&rsquo;ve got a new <a href="http://shop.lenovo.com/gb/en/laptops/thinkpad/t-series/t430/">laptop</a>
 and wanted a fresh start</li>
 </ol>
-
 <p>Although point 1 isn&rsquo;t a major deciding factor for my move (more so because
 I am using Linux Mint versus vanilla Ubuntu), I am keen to avoid
 software that seems very Ubuntu-centric (Upstart, for example) and instead use more
 widely used alternatives such as systemd.</p>
-
 <p>In terms using Debian for servers: I haven&rsquo;t really had any issues using Ubuntu LTS,
 but I don&rsquo;t feel comfortable performing dist-upgrades for those (some will insist on
 performing complete re-installs, which I&rsquo;m inclined to agree with). Debian&rsquo;s method of
 upgrading from oldstable to the new stable seems easier and more reliable. I haven&rsquo;t
 put this into practice yet, but it&rsquo;s something to consider for non-essential servers.</p>
-
 <p>I also had some objectives with this installation:</p>
-
 <ol>
 <li>Replicate as closely as possible the <a href="http://cinnamon.linuxmint.com/">Cinnamon</a> desktop environment, with XFCE4</li>
 <li>Make use of newer packages without compromising day-to-day stability too much</li>
 <li>Keep the system as &ldquo;clean&rdquo; as possible (avoiding gratuitous use of 3rd-party repos)</li>
 </ol>
-
 <p>I&rsquo;ve been drawn to Cinnamon since I first used Linux Mint a few years ago, after
 switching from Ubuntu around the time that Unity was introduced. Unfortunately,
 at the time of writing, Cinnamon doesn&rsquo;t seem to work properly on Debian Wheezy
 (when tested in a virtual machine), so I&rsquo;ve decided to use XFCE4 after having tried
 and compared it against GNOME 3.</p>
-
 <p>In the next post I will outline the changes I&rsquo;ve made to XFCE4 to bring it more
 in-line with what I like and am used to; hopefully you might find some of these
 changes useful too.</p>
-
 <p>Regarding point 2: I&rsquo;m of the camp that prefers a stable desktop to one that&rsquo;s
 constantly in flux, such as Arch. I should make it clear that I like and admire
 Arch, and have tried it myself (and have it running on a Raspberry Pi currently),
 but Debian is what I&rsquo;m used to, know my way around, and what I want to focus my
 personal and professional life on for the near future.</p>
-
 <p>Initially while testing, I used Debian Stable in a virtual machine but noticed that
 XFCE4 was a version behind and the current version included some features that I
 would require in my quest to replicate Cinnamon, hence the decision to run on
 the <em>testing</em> source with <em>unstable</em> as an additional (optional) source.</p>
-
 <p>Finally, point 3: In the past I have had the habit of using PPAs and 3rd party
 repositories for various software. After a while, these start to become outdated,
 unsupported or just plain removed. My intention this time around is to stay with
 the official Debian repositories as much as possible, albeit with some exceptions
 for things like Google Chrome.</p>
-
 <p>So, to the actual content now that the preliminaries are covered&hellip;</p>
-
 <h2 id="initial-setup">Initial Setup</h2>
-
 <p>First, I perform a standard install - I <strong>do not</strong> select any desktop environment
 at this stage, as I prefer to do this manually.</p>
-
 <p>After rebooting into my new Debian system, I changed my APT sources to use the
 Debian <a href="http://http.debian.net/">HTTP mirror redirector</a> instead of <em>ftp.uk.debian.org</em>
 which was selected during installation. Note that you <strong>should not</strong> change the
 <em>security.debian.org</em> lines to use this.</p>
-
 <p>Next, I <code>update</code>, <code>upgrade</code>, and <code>dist-upgrade</code> with <code>apt-get</code> - I wanted to make sure
 everything was up to date before switching my sources to <em>testing</em>.</p>
-
 <p>It&rsquo;s <a href="https://wiki.debian.org/DebianUnstable#What_are_some_best_practices_for_testing.2Fsid_users.3F">suggested</a>
 to install <code>apt-listbugs</code> and <code>apt-listchanges</code> when using <em>testing</em>/<em>unstable</em>,
 so I <code>apt-get install</code> those.</p>
-
 <p>Now&rsquo;s the time to change to <em>testing</em> and <em>unstable</em> - to do this, I changed
 all references to <em>wheezy</em> in <code>/etc/apt/sources.list</code> to <em>testing</em> and removed
 the <em>wheezy-updates</em> lines. I also appended <code>contrib non-free</code> to each line, to
 enable the other repositories.</p>
-
 <p>I then added the <em>unstable</em> sources to the file so that I&rsquo;m able to install
 packages from there if the <em>testing</em> version is broken or otherwise unsuitable.</p>
-
 <p>Here&rsquo;s my <code>/etc/apt/sources.list</code> file for comparison:</p>
-
 <pre><code>deb http://http.debian.net/debian/ testing main contrib non-free
 deb-src http://http.debian.net/debian/ testing main contrib non-free
 
@@ -176,57 +185,42 @@ deb-src http://http.debian.net/debian/ unstable main contrib non-free
 
 deb http://security.debian.org/ testing/updates main contrib non-free
 deb-src http://security.debian.org/ testing/updates main contrib non-free
-</code></pre>
-
-<p>Now I need to tell Debian that I prefer the <em>testing</em> over <em>unstable</em> when
+</code></pre><p>Now I need to tell Debian that I prefer the <em>testing</em> over <em>unstable</em> when
 installing packages. To do this, create <code>/etc/apt/apt.conf.d/00local</code> and add
 the following:</p>
-
 <pre><code>APT::Default-Release &quot;testing&quot;;
-</code></pre>
-
-<p>Once done, proceed to <code>update</code>, <code>upgrade</code> and <code>dist-upgrade</code> with <code>apt-get</code> to
+</code></pre><p>Once done, proceed to <code>update</code>, <code>upgrade</code> and <code>dist-upgrade</code> with <code>apt-get</code> to
 upgrade your system to <em>testing</em>.</p>
-
 <p>During the upgrade you may see a prompt to install/upgrade package - this is
 <code>apt-listbugs</code> doing its thing and showing bugs that could potentially cause problems.
 It&rsquo;s a good idea to copy this text somewhere in case you need to reference it if
 the worst does happen. Similarly, you may see a list of changelog entries after continuing. These are worth reading.</p>
-
 <p>Once the upgrade process has completed, I installed XFCE4 and LightDM with
 <code>apt-get install lightdm xfce4 xfce4-goodies</code>, then ran an <code>apt-get autoclean</code> to remove any
 old packages and then rebooted the system.</p>
-
 <p>At this point, I installed some bits and pieces I prefer, such as <code>postfix</code>,
 <code>sudo</code> and <code>vim-nox</code>.</p>
-
 <p>The <a href="/2014/02/my-debian-xfce4-tweaks/">next blog post</a> will detail the XFCE4 changes I made.</p>
-                </section>
-            </article>
-            <footer id="post-meta" class="clearfix">
-                <a href="https://twitter.com/vxnick">
-                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
-                        <div>
-                            <span class="dark">Nick Savage</span>
-                            <span></span>
-                        </div>
-                    </a>
-                <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2014%2f02%2fdebian-mixed-testing%2funstable-installation%2f - Debian%20Mixed%20Testing%2fUnstable%20Installation by @vxnick"><span class="icon-twitter"> tweet</span></a>
+</div>
 
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-</a>
+        <footer class="post-footer clearfix">
+    
 
-                </section>
-            </footer>
+    <div class="share">
+        
 
-            <div id="disqus_thread"></div>
-<script>
+        
+
+
+        
+    </div>
+</footer>
+
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -245,102 +239,38 @@ old packages and then rebooted the system.</p>
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
 
-            <ul id="post-list" class="archive readmore">
-    <h3>Read more</h3>
-
-    
-    
-    
-        <li>
-            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2016/12/my-preferred-chef-team-workflow/">My preferred Chef team workflow<aside class="dates">Dec 5 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/my-debian-xfce4-tweaks/">My Debian XFCE4 Tweaks<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2013/12/easy-nfs-mounting/">Easy NFS Mounting<aside class="dates">Dec 18 2013</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/07/minecraft-overviewer-mapping/">Minecraft Overviewer Mapping<aside class="dates">Jul 10 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/06/removing-old-duplicity-backups/">Removing Old Duplicity Backups<aside class="dates">Jun 14 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/setting-up-rbenv-globally/">Setting Up rbenv Globally<aside class="dates">Apr 9 2012</aside></a>
-        </li>
-    
-</ul>
-
-            <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    
-    <a class="symbol" href="https://github.com/vxnick">
-        github
-    </a>
-    
-    <a class="symbol" href="https://twitter.com/vxnick">
-        twitterbird
-    </a>
-    
-
-
+    </article>
 </div>
 
-    
-    <p class="small">
-    
-        © Copyright 2017 Nick Savage
-    
-    </p>
-</footer>
+            </div>
+        </div>
 
-        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://vxnick.com/js/main.js"></script>
-<script src="http://vxnick.com/js/highlight.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
 
-
-
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-7692437-1', 'auto');
-ga('send', 'pageview');
-</script>
-
-
+        <script src="https://vxnick.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://vxnick.com/js/jquery.fitvids.js"></script>
+        <script src="https://vxnick.com/js/scripts.js"></script>
     </body>
 </html>
+

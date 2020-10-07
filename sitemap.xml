@@ -1,152 +1,148 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://vxnick.com/2016/12/breaking-unlinking-hard-links/</loc>
-    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2016/12/breaking-unlinking-hard-links/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2016/12/my-preferred-chef-team-workflow/</loc>
-    <lastmod>2016-12-05T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2014/10/binding-extra-mouse-buttons-on-linux/</loc>
-    <lastmod>2014-10-17T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/post/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2014/02/debian-mixed-testing/unstable-installation/</loc>
-    <lastmod>2014-02-11T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2016/12/my-preferred-chef-team-workflow/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2014/02/my-debian-xfce4-tweaks/</loc>
-    <lastmod>2014-02-11T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2014/10/binding-extra-mouse-buttons-on-linux/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2013/12/easy-nfs-mounting/</loc>
-    <lastmod>2013-12-18T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2014/02/debian-mixed-testing/unstable-installation/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2012/12/bundler-gemfile-path/</loc>
-    <lastmod>2012-12-03T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2014/02/my-debian-xfce4-tweaks/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2012/07/minecraft-overviewer-mapping/</loc>
-    <lastmod>2012-07-10T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2013/12/easy-nfs-mounting/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2012/06/removing-old-duplicity-backups/</loc>
-    <lastmod>2012-06-14T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2012/12/bundler-gemfile-path/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/</loc>
-    <lastmod>2012-04-20T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2012/07/minecraft-overviewer-mapping/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2012/04/setting-up-rbenv-globally/</loc>
-    <lastmod>2012-04-09T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2012/06/removing-old-duplicity-backups/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2012/04/easy-ssl-csr-creation/</loc>
-    <lastmod>2012-04-02T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2012/04/autoloading-your-own-libraries-with-rails/</loc>
-    <lastmod>2012-04-01T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2012/04/setting-up-rbenv-globally/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2011/02/creating-an-ssh-tunnel/</loc>
-    <lastmod>2011-02-03T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2012/04/easy-ssl-csr-creation/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2011/01/equalising-volume-with-mp3gain/</loc>
-    <lastmod>2011-01-12T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2012/04/autoloading-your-own-libraries-with-rails/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2010/12/viewing-csr-data/</loc>
-    <lastmod>2010-12-22T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2011/02/creating-an-ssh-tunnel/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2010/08/export-bazaar-to-git/</loc>
-    <lastmod>2010-08-18T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2011/01/equalising-volume-with-mp3gain/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/12/cpanel-exim-secondary-ip/</loc>
-    <lastmod>2009-12-17T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2010/12/viewing-csr-data/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/05/ssh-keepalive/</loc>
-    <lastmod>2009-05-07T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2010/08/export-bazaar-to-git/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/05/redmine-bazaar-repositories/</loc>
-    <lastmod>2009-05-06T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2009/12/cpanel-exim-secondary-ip/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/04/shell-line-count/</loc>
-    <lastmod>2009-04-23T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2009/05/ssh-keepalive/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/03/php-country-array/</loc>
-    <lastmod>2009-03-29T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2009/05/redmine-bazaar-repositories/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/03/php-filesize-formats/</loc>
-    <lastmod>2009-03-29T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2009/04/shell-line-count/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/03/developing-with-bazaar/</loc>
-    <lastmod>2009-03-23T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2009/03/php-country-array/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/2009/03/mamp-wildcard-virtualhosts/</loc>
-    <lastmod>2009-03-23T00:00:00+00:00</lastmod>
+    <loc>https://vxnick.com/2009/03/php-filesize-formats/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/categories/</loc>
-    <priority>0</priority>
+    <loc>https://vxnick.com/2009/03/developing-with-bazaar/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/</loc>
-    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://vxnick.com/2009/03/mamp-wildcard-virtualhosts/</loc>
+    <lastmod>2017-08-08T11:13:36+01:00</lastmod>
   </url>
   
   <url>
-    <loc>http://vxnick.com/post/</loc>
-    <lastmod>2016-12-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>https://vxnick.com/categories/</loc>
   </url>
   
   <url>
-    <loc>http://vxnick.com/tags/</loc>
-    <priority>0</priority>
+    <loc>https://vxnick.com/tags/</loc>
   </url>
   
 </urlset>

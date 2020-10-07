@@ -1,13 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Nick&#39;s Place</title>
-    <link>http://vxnick.com/categories/</link>
+    <link>https://vxnick.com/categories/</link>
     <description>Recent content in Categories on Nick&#39;s Place</description>
     <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="http://vxnick.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>Nick Savage</copyright><atom:link href="https://vxnick.com/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

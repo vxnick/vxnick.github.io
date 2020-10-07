@@ -1,116 +1,140 @@
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Nick Savage">
-<meta name="description" content="My technical ramblings">
-<meta name="generator" content="Hugo 0.31.1" />
-<title>Minecraft Overviewer Mapping</title>
-<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
-<link rel="stylesheet" href="http://vxnick.com/css/style.css">
-<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
-
-
-
-<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
-
-
-
-<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
-
-
-<meta property="og:title" content="Minecraft Overviewer Mapping" />
-<meta property="og:description" content="Setting up Minecraft Overviewer on a separate server" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://vxnick.com/2012/07/minecraft-overviewer-mapping/" />
-
-
-
-<meta property="article:published_time" content="2012-07-10T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2012-07-10T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<meta itemprop="name" content="Minecraft Overviewer Mapping">
-<meta itemprop="description" content="Setting up Minecraft Overviewer on a separate server">
-
-
-<meta itemprop="datePublished" content="2012-07-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2012-07-10T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="844">
-
-
-
-<meta itemprop="keywords" content="" />
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Minecraft Overviewer Mapping"/>
-<meta name="twitter:description" content="Setting up Minecraft Overviewer on a separate server"/>
-<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
-
-
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Minecraft Overviewer Mapping &middot; Nick Savage</title>
+        <meta name="description" content="Setting up Minecraft Overviewer on a separate server">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.76.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Minecraft Overviewer Mapping">
+<meta property="og:description" content="Setting up Minecraft Overviewer on a separate server">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vxnick.com/2012/07/minecraft-overviewer-mapping/">
+        <link rel="stylesheet" href="https://vxnick.com/dist/site.css">
+        <link rel="stylesheet" href="https://vxnick.com/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+    </head>
     <body>
-        <section id="wrapper">
-            <article class="post">
-                <header>
-                    <h1><a href="http://vxnick.com/">Minecraft Overviewer Mapping</a></h1>
-                    <h2 class="headline">
-                    July 10, 2012
-                    <br>
-                    
-                    </h2>
-                </header>
-                <section id="post-body">
-                    <p>I run a <a href="http://playpyxis.com/">fairly small</a> Minecraft server with my brother
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-7692437-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                            </h1>
+                        
+                        
+                            <a class="button-square" href="https://vxnick.com/index.xml" aria-label="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/vxnick" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/vxnick" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Minecraft Overviewer Mapping</h1>
+    
+        <p class="post-description" itemprop="description">Setting up Minecraft Overviewer on a separate server</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2012-07-10" itemprop="datePublished">Tue, Jul 10, 2012</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Nick Savage</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 4 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>I run a <a href="http://playpyxis.com/">fairly small</a> Minecraft server with my brother
 and a few friends, and one of the requests we had was for a dynamic world map,
 using the <a href="http://dev.bukkit.org/server-mods/dynmap/">Dynmap</a> Bukkit plugin.</p>
-
-<p></p>
-
 <p>I thought this would be an interesting challenge, as the game is hosted at
 <a href="http://multiplay.co.uk/">Multiplay</a>, who don&rsquo;t provide hosting or port
 allocations (as far as I can see, anyway). This would prove the challenge, as
 Dynmap includes its own web server, which obviously wouldn&rsquo;t be able to run.</p>
-
 <p>I discovered Dynmap also offered proxying via Apache/Nginx which would&rsquo;ve been
 suitable, but for the same problem - Multiplay don&rsquo;t provide hosting!</p>
-
 <p>After some fiddling with the configuration, I ended up FTP&rsquo;ing the Dynmap output
 to the Pyxis web server. This worked, but it essentially made Dynmap redundant as
 no real dynamic features could be used - it&rsquo;d always rely on a cron running every
 few minutes.</p>
-
 <p>After some Googling, I came across <a href="http://overviewer.org/">Minecraft Overviewer</a>,
 which - apart from having excellent documentation - generates
 <a href="http://playpyxis.com/map">pretty nice isometric maps</a>.</p>
-
 <p>The original plan was to run Overviewer on the Pyxis web server, but that proved
 to be an issue due to the amount of system resources it used generating the map
 (which itself ended up at around 600MB) at the highest/best <em>smooth-lighting</em>
 rendering.</p>
-
 <p>What I decided on in the end was to run Overviewer on a separate machine (actually
 a <a href="http://www.dg.co.uk/">work</a> machine) which would act as a proxy between
 Multiplay and the Pyxis web server. Not ideal, but better to do that than get my
 account terminated for excessive resource usage!</p>
-
 <p>Below is the Bash script I came up with. It&rsquo;s pretty rough, but does the job nicely
 and runs every 10 minutes, which seems reasonable given it takes a few minutes for
 Overviewer to re-generate the map.</p>
-
 <p>If you&rsquo;re interested in using this yourself, scroll down past the code to find
 further information.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
 </span><span style="color:#75715e"></span>working_dir<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/home/nick/tmp/mcmap-import&#34;</span>
 <span style="color:#f92672">(</span>
         flock -w <span style="color:#ae81ff">300</span> <span style="color:#ae81ff">200</span> <span style="color:#f92672">||</span> exit <span style="color:#ae81ff">1</span>
@@ -145,48 +169,34 @@ further information.</p>
         echo -n <span style="color:#e6db74">&#34;Pushing to Pyxis... &#34;</span>
         rsync -av --delete world-live/ user@host:~/webapps/pyxis/map/
         echo <span style="color:#e6db74">&#34;done&#34;</span>
-<span style="color:#f92672">)</span> <span style="color:#ae81ff">200</span>&gt;$working_dir/cron.lock</code></pre></div>
-
+<span style="color:#f92672">)</span> 200&gt;$working_dir/cron.lock</code></pre></div>
 <h2 id="prerequisites">Prerequisites</h2>
-
 <p>You&rsquo;ll need the following in order for the script to work:</p>
-
 <ol>
 <li><code>wget</code></li>
 <li><code>rsync</code></li>
 <li><code>overviewer.py</code> (I installed it into my home directory - just change the path on line 75)</li>
 </ol>
-
 <h2 id="setup">Setup</h2>
-
 <p>First, create in your home directory a file named <code>.wgetrc</code> - this will contain
 your FTP username and password, without exposing the credentials on the command line
 or as environment variables.</p>
-
 <pre><code>username = you
 password = example
-</code></pre>
-
-<p>Second, make sure you have an SSH public key setup if you&rsquo;re pushing via <code>rsync</code>
+</code></pre><p>Second, make sure you have an SSH public key setup if you&rsquo;re pushing via <code>rsync</code>
 to your live server. You could use FTP, but ideally you want to delete any
 extraneous files from the live site at the same time.</p>
-
 <p>Third, create an Overviewer configuration file named <code>mco.conf</code> in the working directory.
 See the <a href="http://docs.overviewer.org/en/latest/config/">documentation</a> for further information.</p>
-
-<pre><code class="language-python">worlds[&quot;Pyxis&quot;] = &quot;/home/nick/tmp/mcmap-import/world-ref&quot;
-outputdir = &quot;/home/nick/tmp/mcmap-import/world-live&quot;
-texturepath = &quot;/home/nick/tmp/mcmap-import&quot;
-renders[&quot;smooth-lighting&quot;] = {
-        'world': 'Pyxis',
-        'title': 'Pyxis',
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-python" data-lang="python">worlds[<span style="color:#e6db74">&#34;Pyxis&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/nick/tmp/mcmap-import/world-ref&#34;</span>
+outputdir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/nick/tmp/mcmap-import/world-live&#34;</span>
+texturepath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/nick/tmp/mcmap-import&#34;</span>
+renders[<span style="color:#e6db74">&#34;smooth-lighting&#34;</span>] <span style="color:#f92672">=</span> {
+        <span style="color:#e6db74">&#39;world&#39;</span>: <span style="color:#e6db74">&#39;Pyxis&#39;</span>,
+        <span style="color:#e6db74">&#39;title&#39;</span>: <span style="color:#e6db74">&#39;Pyxis&#39;</span>,
         }
-</code></pre>
-
-<h2 id="explanation">Explanation</h2>
-
+</code></pre></div><h2 id="explanation">Explanation</h2>
 <p>Here&rsquo;s a quick run-through of how the script works:</p>
-
 <ol>
 <li>Create a lock to ensure the script doesn&rsquo;t run multiple times - this is mainly
 useful for cron, as <code>overviewer.py</code> takes a few minutes, and we don&rsquo;t want the next
@@ -208,40 +218,32 @@ glitched maps</li>
 incremental generation, but the first one can take a while</li>
 <li>Push the world to the Pyxis web server</li>
 </ol>
-
 <p>Note that this script essentially keeps 3 copies of the world - the first, <code>world</code>
 is always the version most recently downloaded from Multiplay. The next, <code>world-ref</code>
 is the world that should always exist, and which is always merged with <code>world</code>. The
 last, <code>world-live</code> contains the generated map from <code>overviewer.py</code>, and which is
 uploaded to the Pyxis web server.</p>
-
 <p>Any questions, feedback, etc - let me know in the comments 😄</p>
-                </section>
-            </article>
-            <footer id="post-meta" class="clearfix">
-                <a href="https://twitter.com/vxnick">
-                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
-                        <div>
-                            <span class="dark">Nick Savage</span>
-                            <span></span>
-                        </div>
-                    </a>
-                <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2012%2f07%2fminecraft-overviewer-mapping%2f - Minecraft%20Overviewer%20Mapping by @vxnick"><span class="icon-twitter"> tweet</span></a>
+</div>
 
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-</a>
+        <footer class="post-footer clearfix">
+    
 
-                </section>
-            </footer>
+    <div class="share">
+        
 
-            <div id="disqus_thread"></div>
-<script>
+        
+
+
+        
+    </div>
+</footer>
+
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -260,102 +262,38 @@ uploaded to the Pyxis web server.</p>
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
 
-            <ul id="post-list" class="archive readmore">
-    <h3>Read more</h3>
-
-    
-    
-    
-        <li>
-            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2016/12/my-preferred-chef-team-workflow/">My preferred Chef team workflow<aside class="dates">Dec 5 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/debian-mixed-testing/unstable-installation/">Debian Mixed Testing/Unstable Installation<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/my-debian-xfce4-tweaks/">My Debian XFCE4 Tweaks<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2013/12/easy-nfs-mounting/">Easy NFS Mounting<aside class="dates">Dec 18 2013</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/06/removing-old-duplicity-backups/">Removing Old Duplicity Backups<aside class="dates">Jun 14 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/setting-up-rbenv-globally/">Setting Up rbenv Globally<aside class="dates">Apr 9 2012</aside></a>
-        </li>
-    
-</ul>
-
-            <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    
-    <a class="symbol" href="https://github.com/vxnick">
-        github
-    </a>
-    
-    <a class="symbol" href="https://twitter.com/vxnick">
-        twitterbird
-    </a>
-    
-
-
+    </article>
 </div>
 
-    
-    <p class="small">
-    
-        © Copyright 2017 Nick Savage
-    
-    </p>
-</footer>
+            </div>
+        </div>
 
-        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://vxnick.com/js/main.js"></script>
-<script src="http://vxnick.com/js/highlight.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
 
-
-
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-7692437-1', 'auto');
-ga('send', 'pageview');
-</script>
-
-
+        <script src="https://vxnick.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://vxnick.com/js/jquery.fitvids.js"></script>
+        <script src="https://vxnick.com/js/scripts.js"></script>
     </body>
 </html>
+

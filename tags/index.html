@@ -3,21 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>PHP Filesize Formats &middot; Nick Savage</title>
-        <meta name="description" content="Convert byte values to human-friendly filesize formats">
+        <title>Tags &middot; Nick Savage</title>
+        <meta name="description" content="My technical ramblings">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="generator" content="Hugo 0.76.0" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta property="og:title" content="PHP Filesize Formats">
-<meta property="og:description" content="Convert byte values to human-friendly filesize formats">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://vxnick.com/2009/03/php-filesize-formats/">
+        <meta property="og:title" content="Tags">
+<meta property="og:description" content="My technical ramblings">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vxnick.com/tags/">
         <link rel="stylesheet" href="https://vxnick.com/dist/site.css">
         <link rel="stylesheet" href="https://vxnick.com/dist/syntax.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+            <link href="/tags/index.xml" rel="alternate" type="application/rss+xml">
         
         
         
@@ -79,94 +81,24 @@ if (!doNotTrack) {
             <div id="container">
 
 
-<div class="container">
-    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
-        <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">PHP Filesize Formats</h1>
+<div id="post-index" class="container">
     
-        <p class="post-description" itemprop="description">Convert byte values to human-friendly filesize formats</p>
-    
-    <p class="post-date">
-        <span>Published <time datetime="2009-03-29" itemprop="datePublished">Sun, Mar 29, 2009</time></span>
-        <span>by</span>
-        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
-            <span itemprop="name">
-                <a href="#" itemprop="url" rel="author">Nick Savage</a>
-            </span>
-        </span>
-    </p>
-    
-        <p class="post-reading post-line">
-            <span>Estimated reading time: 1 min</span>
-        </p>
-    
-</header>
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name">Nick&#39;s Place</h1>
+        <p>My technical ramblings</p>
+    </header>
 
-        <div class="post-content clearfix" itemprop="articleBody">
-    
 
-    <p>This handy function allows you to pass a filesize in bytes and have it returned with the appropriate suffix.</p>
-<p>Credit is due, but I don&rsquo;t remember where I originally found it (possibly the <a href="http://www.php.net/docs.php">PHP documentation</a> site).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">filesize_format</span> ($bytes)
-{
-    <span style="color:#66d9ef">if</span> ($bytes <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)
-    {
-        $suffixes <span style="color:#f92672">=</span> <span style="color:#66d9ef">array</span>(<span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;KB&#39;</span>, <span style="color:#e6db74">&#39;MB&#39;</span>, <span style="color:#e6db74">&#39;GB&#39;</span>, <span style="color:#e6db74">&#39;TB&#39;</span>);
-        $bytes <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>) $bytes;
 
-        $bits <span style="color:#f92672">=</span> <span style="color:#ae81ff">1024</span>;
-        $result <span style="color:#f92672">=</span> (<span style="color:#a6e22e">int</span>) (<span style="color:#a6e22e">log</span>($bytes, $bits));
+    <ol class="post-list tag-list">
+        
+        
+    </ol>
 
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">round</span>($bytes <span style="color:#f92672">/</span> <span style="color:#a6e22e">pow</span>($bits, $result))<span style="color:#f92672">.</span><span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">.</span>$suffixes[$result];
-    }
-    <span style="color:#66d9ef">else</span>
-    {
-        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;0 B&#39;</span>;
-    }
-}
-</code></pre></div>
-</div>
-
-        <footer class="post-footer clearfix">
-    
-
-    <div class="share">
+    <div class="post-navigation tag-navigation">
         
 
-        
-
-
-        
     </div>
-</footer>
-
-
-        
-    <div class="comments">
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "vxnick" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </div>
-
-    </article>
 </div>
 
             </div>
@@ -198,4 +130,3 @@ if (!doNotTrack) {
         <script src="https://vxnick.com/js/scripts.js"></script>
     </body>
 </html>
-

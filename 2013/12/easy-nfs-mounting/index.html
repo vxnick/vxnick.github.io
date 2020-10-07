@@ -1,127 +1,145 @@
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Nick Savage">
-<meta name="description" content="My technical ramblings">
-<meta name="generator" content="Hugo 0.31.1" />
-<title>Easy NFS Mounting</title>
-<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
-<link rel="stylesheet" href="http://vxnick.com/css/style.css">
-<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
-
-
-
-<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
-
-
-
-<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
-
-
-<meta property="og:title" content="Easy NFS Mounting" />
-<meta property="og:description" content="Mount an NFS share easily on Linux" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://vxnick.com/2013/12/easy-nfs-mounting/" />
-
-
-
-<meta property="article:published_time" content="2013-12-18T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2013-12-18T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<meta itemprop="name" content="Easy NFS Mounting">
-<meta itemprop="description" content="Mount an NFS share easily on Linux">
-
-
-<meta itemprop="datePublished" content="2013-12-18T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2013-12-18T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="144">
-
-
-
-<meta itemprop="keywords" content="" />
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Easy NFS Mounting"/>
-<meta name="twitter:description" content="Mount an NFS share easily on Linux"/>
-<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
-
-
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Easy NFS Mounting &middot; Nick Savage</title>
+        <meta name="description" content="Mount an NFS share easily on Linux">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.76.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Easy NFS Mounting">
+<meta property="og:description" content="Mount an NFS share easily on Linux">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vxnick.com/2013/12/easy-nfs-mounting/">
+        <link rel="stylesheet" href="https://vxnick.com/dist/site.css">
+        <link rel="stylesheet" href="https://vxnick.com/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+    </head>
     <body>
-        <section id="wrapper">
-            <article class="post">
-                <header>
-                    <h1><a href="http://vxnick.com/">Easy NFS Mounting</a></h1>
-                    <h2 class="headline">
-                    December 18, 2013
-                    <br>
-                    
-                    </h2>
-                </header>
-                <section id="post-body">
-                    <p>A year or two ago, I bought a <a href="http://www.readynas.com/">ReadyNAS</a> and was having
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-7692437-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                            </h1>
+                        
+                        
+                            <a class="button-square" href="https://vxnick.com/index.xml" aria-label="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/vxnick" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/vxnick" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Easy NFS Mounting</h1>
+    
+        <p class="post-description" itemprop="description">Mount an NFS share easily on Linux</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2013-12-18" itemprop="datePublished">Wed, Dec 18, 2013</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Nick Savage</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 1 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>A year or two ago, I bought a <a href="http://www.readynas.com/">ReadyNAS</a> and was having
 problems getting it to mount on Ubuntu. I tried various methods, but without much
 luck.</p>
-
 <p>I&rsquo;m writing this post now as I had to mount this share on my Linux laptop, and
 couldn&rsquo;t remember how I&rsquo;d done it on my Linux desktop.</p>
-
-<p></p>
-
 <p>It turns out I found a very easy method - I can&rsquo;t say for sure whether this is
 better than other alternatives such as <a href="https://help.ubuntu.com/community/Autofs">AutoFS</a>,
 but it&rsquo;s a lot simpler.</p>
-
 <p>To start, install the NFS common package with Aptitude (or <code>apt-get</code>):</p>
-
 <pre><code>sudo aptitude install nfs-common
-</code></pre>
-
-<p>Then, edit <code>/etc/fstab</code> and add the following line (changing the IP address and
+</code></pre><p>Then, edit <code>/etc/fstab</code> and add the following line (changing the IP address and
 desired mount point):</p>
-
 <pre><code>192.168.1.5:/media  /media/Vault  nfs  users,_netdev,auto  0  0
-</code></pre>
-
-<p>Reboot once that&rsquo;s done and you should see this directory on Nautilus&rsquo; sidebar
+</code></pre><p>Reboot once that&rsquo;s done and you should see this directory on Nautilus' sidebar
 (or somewhere similar if you&rsquo;re using a different file manager).</p>
-                </section>
-            </article>
-            <footer id="post-meta" class="clearfix">
-                <a href="https://twitter.com/vxnick">
-                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
-                        <div>
-                            <span class="dark">Nick Savage</span>
-                            <span></span>
-                        </div>
-                    </a>
-                <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2013%2f12%2feasy-nfs-mounting%2f - Easy%20NFS%20Mounting by @vxnick"><span class="icon-twitter"> tweet</span></a>
+</div>
 
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-</a>
+        <footer class="post-footer clearfix">
+    
 
-                </section>
-            </footer>
+    <div class="share">
+        
 
-            <div id="disqus_thread"></div>
-<script>
+        
+
+
+        
+    </div>
+</footer>
+
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -140,102 +158,38 @@ desired mount point):</p>
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
 
-            <ul id="post-list" class="archive readmore">
-    <h3>Read more</h3>
-
-    
-    
-    
-        <li>
-            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2016/12/my-preferred-chef-team-workflow/">My preferred Chef team workflow<aside class="dates">Dec 5 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/debian-mixed-testing/unstable-installation/">Debian Mixed Testing/Unstable Installation<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/my-debian-xfce4-tweaks/">My Debian XFCE4 Tweaks<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/07/minecraft-overviewer-mapping/">Minecraft Overviewer Mapping<aside class="dates">Jul 10 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/06/removing-old-duplicity-backups/">Removing Old Duplicity Backups<aside class="dates">Jun 14 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/setting-up-rbenv-globally/">Setting Up rbenv Globally<aside class="dates">Apr 9 2012</aside></a>
-        </li>
-    
-</ul>
-
-            <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    
-    <a class="symbol" href="https://github.com/vxnick">
-        github
-    </a>
-    
-    <a class="symbol" href="https://twitter.com/vxnick">
-        twitterbird
-    </a>
-    
-
-
+    </article>
 </div>
 
-    
-    <p class="small">
-    
-        © Copyright 2017 Nick Savage
-    
-    </p>
-</footer>
+            </div>
+        </div>
 
-        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://vxnick.com/js/main.js"></script>
-<script src="http://vxnick.com/js/highlight.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
 
-
-
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-7692437-1', 'auto');
-ga('send', 'pageview');
-</script>
-
-
+        <script src="https://vxnick.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://vxnick.com/js/jquery.fitvids.js"></script>
+        <script src="https://vxnick.com/js/scripts.js"></script>
     </body>
 </html>
+

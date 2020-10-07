@@ -1,136 +1,147 @@
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Nick Savage">
-<meta name="description" content="My technical ramblings">
-<meta name="generator" content="Hugo 0.31.1" />
-<title>Redmine Bazaar Repositories</title>
-<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
-<link rel="stylesheet" href="http://vxnick.com/css/style.css">
-<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
-
-
-
-<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
-
-
-
-<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
-
-
-<meta property="og:title" content="Redmine Bazaar Repositories" />
-<meta property="og:description" content="Bazaar repository integration with Redmine" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://vxnick.com/2009/05/redmine-bazaar-repositories/" />
-
-
-
-<meta property="article:published_time" content="2009-05-06T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2009-05-06T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<meta itemprop="name" content="Redmine Bazaar Repositories">
-<meta itemprop="description" content="Bazaar repository integration with Redmine">
-
-
-<meta itemprop="datePublished" content="2009-05-06T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2009-05-06T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="315">
-
-
-
-<meta itemprop="keywords" content="" />
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Redmine Bazaar Repositories"/>
-<meta name="twitter:description" content="Bazaar repository integration with Redmine"/>
-<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
-
-
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Redmine Bazaar Repositories &middot; Nick Savage</title>
+        <meta name="description" content="Bazaar repository integration with Redmine">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.76.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Redmine Bazaar Repositories">
+<meta property="og:description" content="Bazaar repository integration with Redmine">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vxnick.com/2009/05/redmine-bazaar-repositories/">
+        <link rel="stylesheet" href="https://vxnick.com/dist/site.css">
+        <link rel="stylesheet" href="https://vxnick.com/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+    </head>
     <body>
-        <section id="wrapper">
-            <article class="post">
-                <header>
-                    <h1><a href="http://vxnick.com/">Redmine Bazaar Repositories</a></h1>
-                    <h2 class="headline">
-                    May 6, 2009
-                    <br>
-                    
-                    </h2>
-                </header>
-                <section id="post-body">
-                    <p><em>Sigh&hellip;</em></p>
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-7692437-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
 
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                            </h1>
+                        
+                        
+                            <a class="button-square" href="https://vxnick.com/index.xml" aria-label="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/vxnick" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/vxnick" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Redmine Bazaar Repositories</h1>
+    
+        <p class="post-description" itemprop="description">Bazaar repository integration with Redmine</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2009-05-06" itemprop="datePublished">Wed, May 6, 2009</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Nick Savage</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 2 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p><em>Sigh&hellip;</em></p>
 <p>It&rsquo;s taken me about a day of fiddling about to finally get <a href="http://redmine.org">Redmine</a> to work with my <a href="http://bazaar-vcs.org">Bazaar</a> repositories.</p>
-
-<p></p>
-
 <p>This is the first time I&rsquo;ve ever used Redmine (as well as Rails), so much Googling was required.</p>
-
 <h3 id="the-problem">The Problem</h3>
-
 <p>I was trying to add a Bazaar shared repository (consisting of <em>trunk</em> and some branches). This failed as it appears that Redmine <a href="http://www.redmine.org/issues/2799">does not yet support</a> Bazaar shared repositories. Because of this, I have only been able to setup <em>trunk</em> (which isn&rsquo;t a problem really, as I&rsquo;m not using branches yet).</p>
-
 <p>This worked fine for a while - I could view the revision history and view the files themselves.</p>
-
 <p>Then - the next day - it stopped working. The revision history was gone, and so were the file listings.</p>
-
 <p>I tried creating test Bazaar repositories and changing the path in the Redmine project settings, but to no avail.</p>
-
 <p>Today I discovered I needed to run <code>ruby script/runner &quot;Repository.fetch_changesets&quot; -e production</code> which thankfully restored the revision history, but not the file listings. I was under the impression that the <em>Autofetch commits</em> administrative setting would have done this whenever the repository was viewed.</p>
-
 <p>After much Googling and a brief moment of <a href="http://twitter.com/vxnick/status/1715653576">hopelessness</a>, I stumbled upon the solution.</p>
-
 <h3 id="the-solution">The Solution</h3>
-
 <p>I had to add the following lines to <code>config/environment.rb</code> (and restart redmine):</p>
-
-<pre><code class="language-ruby">ENV['PYTHONPATH'] = '/home/vxnick/lib/python2.5'
-ENV['PATH'] = &quot;#{ENV['PATH']}:/home/vxnick/bin&quot;
-</code></pre>
-
-<p><strong>Note that I am using WebFaction, so the paths above may vary based on your server environment.</strong></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;PYTHONPATH&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/home/vxnick/lib/python2.5&#39;</span>
+<span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;PATH&#39;</span><span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#{</span><span style="color:#66d9ef">ENV</span><span style="color:#f92672">[</span><span style="color:#e6db74">&#39;PATH&#39;</span><span style="color:#f92672">]</span><span style="color:#e6db74">}</span><span style="color:#e6db74">:/home/vxnick/bin&#34;</span>
+</code></pre></div><p><strong>Note that I am using WebFaction, so the paths above may vary based on your server environment.</strong></p>
 <p>At the moment, everything is working as it should - revision history is there, and I can view my source files. Hopefully everything will stay as-is, however I may have to setup the <code>ruby script/runner ...</code> line as a cronjob if it breaks or doesn&rsquo;t update when I commit to the repository.</p>
-
 <p>Apart from that problem (and the lack of built-in TLS support for mail), Redmine is a nice system for managing projects.</p>
-                </section>
-            </article>
-            <footer id="post-meta" class="clearfix">
-                <a href="https://twitter.com/vxnick">
-                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
-                        <div>
-                            <span class="dark">Nick Savage</span>
-                            <span></span>
-                        </div>
-                    </a>
-                <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2009%2f05%2fredmine-bazaar-repositories%2f - Redmine%20Bazaar%20Repositories by @vxnick"><span class="icon-twitter"> tweet</span></a>
+</div>
 
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-</a>
+        <footer class="post-footer clearfix">
+    
 
-                </section>
-            </footer>
+    <div class="share">
+        
 
-            <div id="disqus_thread"></div>
-<script>
+        
+
+
+        
+    </div>
+</footer>
+
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -149,102 +160,38 @@ ENV['PATH'] = &quot;#{ENV['PATH']}:/home/vxnick/bin&quot;
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
 
-            <ul id="post-list" class="archive readmore">
-    <h3>Read more</h3>
-
-    
-    
-    
-        <li>
-            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2016/12/my-preferred-chef-team-workflow/">My preferred Chef team workflow<aside class="dates">Dec 5 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/debian-mixed-testing/unstable-installation/">Debian Mixed Testing/Unstable Installation<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/my-debian-xfce4-tweaks/">My Debian XFCE4 Tweaks<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2013/12/easy-nfs-mounting/">Easy NFS Mounting<aside class="dates">Dec 18 2013</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/07/minecraft-overviewer-mapping/">Minecraft Overviewer Mapping<aside class="dates">Jul 10 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/06/removing-old-duplicity-backups/">Removing Old Duplicity Backups<aside class="dates">Jun 14 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
-        </li>
-    
-</ul>
-
-            <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    
-    <a class="symbol" href="https://github.com/vxnick">
-        github
-    </a>
-    
-    <a class="symbol" href="https://twitter.com/vxnick">
-        twitterbird
-    </a>
-    
-
-
+    </article>
 </div>
 
-    
-    <p class="small">
-    
-        © Copyright 2017 Nick Savage
-    
-    </p>
-</footer>
+            </div>
+        </div>
 
-        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://vxnick.com/js/main.js"></script>
-<script src="http://vxnick.com/js/highlight.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
 
-
-
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-7692437-1', 'auto');
-ga('send', 'pageview');
-</script>
-
-
+        <script src="https://vxnick.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://vxnick.com/js/jquery.fitvids.js"></script>
+        <script src="https://vxnick.com/js/scripts.js"></script>
     </body>
 </html>
+

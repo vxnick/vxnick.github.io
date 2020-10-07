@@ -1,117 +1,140 @@
-    <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="author" content="Nick Savage">
-<meta name="description" content="My technical ramblings">
-<meta name="generator" content="Hugo 0.31.1" />
-<title>Autoloading your own libraries with Rails</title>
-<link rel="shortcut icon" href="http://vxnick.com/images/favicon.ico">
-<link rel="stylesheet" href="http://vxnick.com/css/style.css">
-<link rel="stylesheet" href="http://vxnick.com/css/highlight.css">
-
-
-
-<link rel="stylesheet" href="http://vxnick.com/css/monosocialiconsfont.css">
-
-
-
-<link href="http://vxnick.com/index.xml" rel="alternate" type="application/rss+xml" title="Nick&#39;s Place" />
-
-
-<meta property="og:title" content="Autoloading your own libraries with Rails" />
-<meta property="og:description" content="How to add a path to the Rails autoloader" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://vxnick.com/2012/04/autoloading-your-own-libraries-with-rails/" />
-
-
-
-<meta property="article:published_time" content="2012-04-01T00:00:00&#43;00:00"/>
-
-<meta property="article:modified_time" content="2012-04-01T00:00:00&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<meta itemprop="name" content="Autoloading your own libraries with Rails">
-<meta itemprop="description" content="How to add a path to the Rails autoloader">
-
-
-<meta itemprop="datePublished" content="2012-04-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2012-04-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="123">
-
-
-
-<meta itemprop="keywords" content="" />
-
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Autoloading your own libraries with Rails"/>
-<meta name="twitter:description" content="How to add a path to the Rails autoloader"/>
-<meta name="twitter:site" content="@https://twitter.com/vxnick"/>
-
-
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Autoloading your own libraries with Rails &middot; Nick Savage</title>
+        <meta name="description" content="How to add a path to the Rails autoloader">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="generator" content="Hugo 0.76.0" />
+        <meta name="robots" content="index,follow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Autoloading your own libraries with Rails">
+<meta property="og:description" content="How to add a path to the Rails autoloader">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://vxnick.com/2012/04/autoloading-your-own-libraries-with-rails/">
+        <link rel="stylesheet" href="https://vxnick.com/dist/site.css">
+        <link rel="stylesheet" href="https://vxnick.com/dist/syntax.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        
+        
+        
+        
+    </head>
     <body>
-        <section id="wrapper">
-            <article class="post">
-                <header>
-                    <h1><a href="http://vxnick.com/">Autoloading your own libraries with Rails</a></h1>
-                    <h2 class="headline">
-                    April 1, 2012
-                    <br>
-                    
-                    </h2>
-                </header>
-                <section id="post-body">
-                    <p>I&rsquo;m new to Rails (and Ruby, more or less) and am currently working on my first
+        
+<script type="application/javascript">
+var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+var doNotTrack = (dnt == "1" || dnt == "yes");
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-7692437-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <div id="wrapper">
+            <header class="site-header">
+                <div class="container">
+                    <div class="site-title-wrapper">
+                        
+                            <h1 class="site-title">
+                                <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                            </h1>
+                        
+                        
+                            <a class="button-square" href="https://vxnick.com/index.xml" aria-label="RSS"><i class="fa fa-rss" aria-hidden="true"></i></a>
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Twitter" aria-label="Twitter" href="https://twitter.com/vxnick" rel="me" >
+                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                            <a class="button-square button-social hint--top" data-hint="Github" aria-label="Github" href="https://github.com/vxnick" rel="me">
+                                <i class="fa fa-github-alt" aria-hidden="true"></i>
+                            </a>
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <ul class="site-nav">
+                        
+
+                    </ul>
+                </div>
+            </header>
+
+            <div id="container">
+
+
+<div class="container">
+    <article class="post-container" itemscope="" itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Autoloading your own libraries with Rails</h1>
+    
+        <p class="post-description" itemprop="description">How to add a path to the Rails autoloader</p>
+    
+    <p class="post-date">
+        <span>Published <time datetime="2012-04-01" itemprop="datePublished">Sun, Apr 1, 2012</time></span>
+        <span>by</span>
+        <span itemscope="" itemprop="author" itemtype="https://schema.org/Person">
+            <span itemprop="name">
+                <a href="#" itemprop="url" rel="author">Nick Savage</a>
+            </span>
+        </span>
+    </p>
+    
+        <p class="post-reading post-line">
+            <span>Estimated reading time: 1 min</span>
+        </p>
+    
+</header>
+
+        <div class="post-content clearfix" itemprop="articleBody">
+    
+
+    <p>I&rsquo;m new to Rails (and Ruby, more or less) and am currently working on my first
 real project with it.</p>
-
-<p></p>
-
 <p>One thing I needed to do was to autoload my own library files, which it seems
 Rails 3 doesn&rsquo;t do (but Rails 2 does, from what I found). It took a while to
 find the &ldquo;proper&rdquo; way to do this, so here it is - open <code>config/application.rb</code>
 and uncomment <code>config.autoload_paths</code> and change the value to whatever you like.</p>
-
 <p>I set it as follows as I thought it&rsquo;d be a better idea to only include my own files
 rather than <code>assets</code> and <code>tasks</code> if I had included the entire <code>lib</code> directory.</p>
-
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">config<span style="color:#f92672">.</span>autoload_paths <span style="color:#f92672">+=</span> <span style="color:#e6db74">%W(</span><span style="color:#e6db74">#{</span>config<span style="color:#f92672">.</span>root<span style="color:#e6db74">}</span><span style="color:#e6db74">/lib/my_project)</span></code></pre></div>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2"><code class="language-ruby" data-lang="ruby">config<span style="color:#f92672">.</span>autoload_paths <span style="color:#f92672">+=</span> <span style="color:#e6db74">%W(</span><span style="color:#e6db74">#{</span>config<span style="color:#f92672">.</span>root<span style="color:#e6db74">}</span><span style="color:#e6db74">/lib/my_project)</span></code></pre></div>
 <p>If anyone knows a better way - let me know!</p>
-                </section>
-            </article>
-            <footer id="post-meta" class="clearfix">
-                <a href="https://twitter.com/vxnick">
-                        <img class="avatar" src="http://vxnick.com/images/avatar.png">
-                        <div>
-                            <span class="dark">Nick Savage</span>
-                            <span></span>
-                        </div>
-                    </a>
-                <section id="sharing">
-                    <a class="twitter" href="https://twitter.com/intent/tweet?text=http%3a%2f%2fvxnick.com%2f2012%2f04%2fautoloading-your-own-libraries-with-rails%2f - Autoloading%20your%20own%20libraries%20with%20Rails by @vxnick"><span class="icon-twitter"> tweet</span></a>
+</div>
 
-<a class="facebook" href="#" onclick="
-    window.open(
-      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-      'facebook-share-dialog',
-      'width=626,height=436');
-    return false;"><span class="icon-facebook-rect"> Share</span>
-</a>
+        <footer class="post-footer clearfix">
+    
 
-                </section>
-            </footer>
+    <div class="share">
+        
 
-            <div id="disqus_thread"></div>
-<script>
+        
+
+
+        
+    </div>
+</footer>
+
+
+        
+    <div class="comments">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
     var disqus_config = function () {
     
     
@@ -130,102 +153,38 @@ rather than <code>assets</code> and <code>tasks</code> if I had included the ent
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
 
-            <ul id="post-list" class="archive readmore">
-    <h3>Read more</h3>
-
-    
-    
-    
-        <li>
-            <a href="/2016/12/breaking-unlinking-hard-links/">Breaking (unlinking) hard links<aside class="dates">Dec 19 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2016/12/my-preferred-chef-team-workflow/">My preferred Chef team workflow<aside class="dates">Dec 5 2016</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/10/binding-extra-mouse-buttons-on-linux/">Binding extra mouse buttons on Linux<aside class="dates">Oct 17 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/debian-mixed-testing/unstable-installation/">Debian Mixed Testing/Unstable Installation<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2014/02/my-debian-xfce4-tweaks/">My Debian XFCE4 Tweaks<aside class="dates">Feb 11 2014</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2013/12/easy-nfs-mounting/">Easy NFS Mounting<aside class="dates">Dec 18 2013</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/12/bundler-gemfile-path/">Bundler Gemfile path<aside class="dates">Dec 3 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/07/minecraft-overviewer-mapping/">Minecraft Overviewer Mapping<aside class="dates">Jul 10 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/06/removing-old-duplicity-backups/">Removing Old Duplicity Backups<aside class="dates">Jun 14 2012</aside></a>
-        </li>
-    
-        <li>
-            <a href="/2012/04/wipe-a-mac-hdd-using-a-linux-live-cd-usb/">Wipe a Mac HDD Using a Linux Live CD USB<aside class="dates">Apr 20 2012</aside></a>
-        </li>
-    
-</ul>
-
-            <footer id="footer">
-    
-        <div id="social">
-
-	
-	
-    
-    <a class="symbol" href="https://github.com/vxnick">
-        github
-    </a>
-    
-    <a class="symbol" href="https://twitter.com/vxnick">
-        twitterbird
-    </a>
-    
-
-
+    </article>
 </div>
 
-    
-    <p class="small">
-    
-        © Copyright 2017 Nick Savage
-    
-    </p>
-</footer>
+            </div>
+        </div>
 
-        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="site-title-wrapper">
+                    <h1 class="site-title">
+                        <a href="https://vxnick.com/">Nick&#39;s Place</a>
+                    </h1>
+                    <a class="button-square button-jump-top js-jump-top" href="#" aria-label="Back to Top">
+                        <i class="fa fa-angle-up" aria-hidden="true"></i>
+                    </a>
+                </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="http://vxnick.com/js/main.js"></script>
-<script src="http://vxnick.com/js/highlight.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+                <p class="footer-copyright">
+                    <span>&copy; 2017 / Powered by <a href="https://gohugo.io/">Hugo</a></span>
+                </p>
+                <p class="footer-copyright">
+                    <span><a href="https://github.com/roryg/ghostwriter">Ghostwriter theme</a> By <a href="http://jollygoodthemes.com">JollyGoodThemes</a></span>
+                    <span>/ <a href="https://github.com/jbub/ghostwriter">Ported</a> to Hugo By <a href="https://github.com/jbub">jbub</a></span>
+                </p>
+            </div>
+        </footer>
 
-
-
-
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-7692437-1', 'auto');
-ga('send', 'pageview');
-</script>
-
-
+        <script src="https://vxnick.com/js/jquery-1.11.3.min.js"></script>
+        <script src="https://vxnick.com/js/jquery.fitvids.js"></script>
+        <script src="https://vxnick.com/js/scripts.js"></script>
     </body>
 </html>
+
